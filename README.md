@@ -1,2 +1,15 @@
 # Shared-Locker
-This Repo is For The Shared Locker Implemented Using the Chinese Remainder Theorem
+
+### This is a shared Locker system where a user can store their secret (primary) keys, and later use given (secondary) keys to access his/her secret key.
+
+## Functionalities
+1. CONFIGURE YOUR KEY
+2. GET YOUR KEY
+
+### CONFIGURING
+1. Add a New Locker Key
+2. Delete A Locker Key
+
+### Sample Use Case
+<img src="img/SharedLocker.png" alt="SampleImage">
+
