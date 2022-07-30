@@ -1,8 +1,4 @@
 // Author : Gourang Pathak
-// Roll Number : 2004213
-// BTech CSE
-// CS222 Algorithm Design Lab 3 (20/Feb/2022)
-
 // Including required libraries
 #include <iostream>
 #include <vector>
