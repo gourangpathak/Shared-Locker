@@ -291,11 +291,11 @@ long long int modular_inverse(long long int num1, long long int num2)
 long long int solve(vector<long long int> &numbers, vector<long long int> &remainders)
 {
     /*
-    L%p1 = u1 => L = u1(mod p1)
-    L%p2 = u2 => L = u2(mod p2)
+    L%p1 = u1 => u1 = L(mod p1)
+    L%p2 = u2 => u2 = L(mod p2)
     ....
     ....
-    L%pk = uk => L = uk(mod pk)
+    L%pk = uk => uk = L(mod pk)
 
     Also,
         m[i] = (p[0]*p[1]*p[2]*....*p[k-1]) / p[i]
