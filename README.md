@@ -10,6 +10,13 @@
 1. Add a New Locker Key
 2. Delete A Locker Key
 
-### Sample Use Case
+### Demo of the Locker
+
+
+
+https://user-images.githubusercontent.com/89131980/190414716-6a80d40b-9a0d-4370-ab74-107d089e001d.mp4
+
+
+### Sample Output
 <img src="img/SharedLocker.png" alt="SampleImage">
 
