@@ -14,6 +14,89 @@
 using namespace std;
 #define endl "\n"
 
+class PrimeGenerator {
+protected:
+    int primeCount;
+    vector<int> primeList;
+
+public:
+    PrimeGenerator() : primeCount(0) {}
+
+    void generatePrimes(int limit) {
+        primeList.clear();
+        primeCount = 0;
+        for (int num = 2; num <= limit; ++num) {
+            bool isPrime = true;
+            for (int i = 2; i * i <= num; ++i) {
+                if (num % i == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+            if (isPrime) {
+                primeList.push_back(num);
+                ++primeCount;
+            }
+        }
+    }
+
+    int modularMultiplicativeInverse(int a, int m) {
+        int m0 = m, t, q;
+        int x0 = 0, x1 = 1;
+        if (m == 1) return 0;
+        while (a > 1) {
+            q = a / m;
+            t = m;
+            m = a % m;
+            a = t;
+            t = x0;
+            x0 = x1 - q * x0;
+            x1 = t;
+        }
+        if (x1 < 0) x1 += m0;
+        return x1;
+    }
+
+    virtual void displayPrimes() {
+        for (int prime : primeList) {
+            cout << prime << " ";
+        }
+        cout << endl;
+    }
+};
+
+class CRTCalculator : public PrimeGenerator {
+private:
+    int mod;
+    int rem;
+
+public:
+    CRTCalculator() : mod(0), rem(0) {}
+
+    void applyChineseRemainderTheorem(const vector<int>& nums, const vector<int>& rems) {
+        int k = nums.size();
+        int prod = 1;
+        for (int i = 0; i < k; i++) prod *= nums[i];
+        int result = 0;
+        for (int i = 0; i < k; i++) {
+            int pp = prod / nums[i];
+            result += rems[i] * modularMultiplicativeInverse(pp, nums[i]) * pp;
+        }
+        rem = result % prod;
+        mod = prod;
+    }
+
+    void displayResult() {
+        cout << "Result: " << rem << " Modulus: " << mod << endl;
+    }
+
+    void displayPrimes() override {
+        cout << "Displaying primes from CRTCalculator:" << endl;
+        PrimeGenerator::displayPrimes();
+    }
+};
+
+
 // A simple function to check if a number is prime or not.
 bool checkPrime(long long int num)
 {
